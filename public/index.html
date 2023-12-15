@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sky</title>
+  </head>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: monospace;
+      background-color: #20adff;
+      overflow: hidden;
+      /* cursor: none; */
+      cursor: grab;
+    }
+
+    button {
+      font-family: monospace;
+
+      cursor: pointer;
+    }
+
+    #cursor {
+      position: absolute;
+      width: 24px;
+      height: 36px;
+      pointer-events: none;
+      background-image: url('./js/cursor.svg');
+      background-size: cover;
+      z-index: 1000;
+      display: none;
+    }
+
+    #prompt {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
+    }
+
+    #stringCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      display: none;
+    }
+
+    #weatherForm {
+      font-family: monospace;
+
+      position: relative;
+      top: 10%;
+      left: 10%;
+    }
+
+    input[type='text'] {
+      font-family: monospace;
+
+      width: 25%;
+    }
+  </style>
+  <body>
+    <!-- <div id="prompt"><h1>fly kite with me~</h1></div> -->
+
+    <form id="weatherForm">
+      <input type="text" name="location" placeholder="Somewhere you wanna fly your kite" />
+      <button type="submit">Go here</button>
+      <button onclick="getLocation()">Locate Me!</button>
+      <p id="location"></p>
+      <div id="windResult"></div>
+      <div id="weatherResult"></div>
+    </form>
+
+    <div id="cursor"></div>
+    <canvas id="stringCanvas"></canvas>
+
+    <!-- <canvas id="stringCanvas"></canvas> -->
+
+    <!-- Other HTML content above -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+    <script src="./js/swinging_cursor.js"></script>
+  </body>
+</html>
